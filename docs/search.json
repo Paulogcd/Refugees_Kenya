@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "analysis.html",
+    "href": "analysis.html",
+    "title": "Analysis",
+    "section": "",
+    "text": "Warning\n\n\n\nThis work is currently under progress.\n\n\nThis page presents the preliminary analysis done on the dataset.\nTesting that running R works :\n\ngetwd()\n\n[1] \"/Users/pgcd/Documents/Professionnel/Freelance/Refugees_Kenya\"\n\n\nFirst, we want to load the datasets :\n\nlibrary(foreign)\nhhm = suppressWarnings(read.spss(\"data_management/data/raw/wave_1/KEN_2022_K-LSRH_v01_M_SPSS/hhm.sav\",\n    to.data.frame = TRUE))\ndim(hhm)\n\n[1] 45011   147\n\nhr = suppressWarnings(read.spss(\"data_management/data/raw/wave_1/KEN_2022_K-LSRH_v01_M_SPSS/hr.sav\",\n    to.data.frame = TRUE))\ndim(hr)\n\n[1] 9304  955\n\nrr = suppressWarnings(read.spss(\"data_management/data/raw/wave_1/KEN_2022_K-LSRH_v01_M_SPSS/rr.sav\",\n    to.data.frame = TRUE))\ndim(rr)\n\n[1] 9285  939\n\nwer = suppressWarnings(read.spss(\"data_management/data/raw/wave_1/KEN_2022_K-LSRH_v01_M_SPSS/wer.sav\",\n    to.data.frame = TRUE))\ndim(wer)\n\n[1] 7244  218\n\n\nFrom the documentation, we have that :\n\n\n\n\n\n\n\n\nData file\nCases\nVariables\n\n\n\n\nhhm\n45011\n147\n\n\nThis file contains data at the level of the individual for all household members\n\n\n\n\nhr\n9304\n955\n\n\nThis file contains household level information\n\n\n\n\nrr\n9285\n939\n\n\nThis file contains data at the representative respondent level\n\n\n\n\nwer\n7244\n218\n\n\nThis file contains data for the women empowerment module\n\n\n\n\n\nWhich seems to confirm the good loading of the data.\n\nDescriptive statistics.\nDoing some descriptive statistics, we have :"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Refugees in Kenya",
+    "section": "",
+    "text": "Warning\n\n\n\nThis work is currently under progress.\n\n\nThis website is dedicated to the presentation of the investigation of the K-LSRH dataset, for Benjamin Michallet and his firm MigLab."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This website is dedicated to the presentation of results from investation of the K-LSRH dataset.\nReference of the dataset : Zikhali, P., Sinha, N., Pape, U., Beltramo, T., & Miguel, E. (2024). Longitudinal Socioeconomic Study of Refugees and Host Communities 2022-2023 [Data set]. World Bank, Development Data Group. https://doi.org/10.48529/X4G6-9K44."
+  }
+]

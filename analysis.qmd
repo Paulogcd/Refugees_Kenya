@@ -1,0 +1,60 @@
+---
+title: "Analysis"
+---
+
+::: {.callout-warning}
+
+This work is currently under progress.
+
+:::
+
+
+This page presents the preliminary analysis done on the dataset. 
+
+Testing that running R works : 
+```{r}
+getwd()
+```
+
+First, we want to load the datasets : 
+
+```{r}
+library(foreign)
+hhm = suppressWarnings(read.spss("data_management/data/raw/wave_1/KEN_2022_K-LSRH_v01_M_SPSS/hhm.sav",
+    to.data.frame = TRUE))
+dim(hhm)
+hr = suppressWarnings(read.spss("data_management/data/raw/wave_1/KEN_2022_K-LSRH_v01_M_SPSS/hr.sav",
+    to.data.frame = TRUE))
+dim(hr)
+rr = suppressWarnings(read.spss("data_management/data/raw/wave_1/KEN_2022_K-LSRH_v01_M_SPSS/rr.sav",
+    to.data.frame = TRUE))
+dim(rr)
+
+wer = suppressWarnings(read.spss("data_management/data/raw/wave_1/KEN_2022_K-LSRH_v01_M_SPSS/wer.sav",
+    to.data.frame = TRUE))
+dim(wer)
+```
+
+[From the documentation](https://microdata.worldbank.org/index.php/catalog/6409/pdf-documentation), we have that : 
+
+| **Data file** | **Cases** | **Variables** |
+|---------------|-----------|---------------|
+| **hhm**       | 45011     | 147           |
+| This file contains data at the level of the individual for all household members |           |               |
+| **hr**        | 9304      | 955           |
+| This file contains household level information |           |               |
+| **rr**        | 9285      | 939           |
+| This file contains data at the representative respondent level |           |               |
+| **wer**       | 7244      | 218           |
+| This file contains data for the women empowerment module |           |               |
+
+Which seems to confirm the good loading of the data. 
+
+# Descriptive statistics. 
+
+Doing some descriptive statistics, we have : 
+
+```{r}
+
+```
+
