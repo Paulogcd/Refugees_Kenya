@@ -2,7 +2,8 @@
 title: "About"
 ---
 
-This website is dedicated to the presentation of results from investation of the K-LSRH dataset.
+This website is dedicated to the presentation of results from investation of the K-LSRH dataset, done for Benjamin Michallet and his firm Miglab. 
 
 Reference of the dataset : 
-Zikhali, P., Sinha, N., Pape, U., Beltramo, T., & Miguel, E. (2024). Longitudinal Socioeconomic Study of Refugees and Host Communities 2022-2023 [Data set]. World Bank, Development Data Group. https://doi.org/10.48529/X4G6-9K44.
+Zikhali, P., Sinha, N., Pape, U., Beltramo, T., & Miguel, E. (2024). Longitudinal Socioeconomic Study of Refugees and Host Communities 2022-2023 [Data set]. World Bank, Development Data Group. [https://doi.org/10.48529/X4G6-9K44](https://doi.org/10.48529/X4G6-9K44).
+

@@ -1,37 +1,30 @@
 ---
-title: "Analysis"
+title: "Descriptive Satisics"
 ---
 
 ::: {.callout-warning}
-
-This work is currently under progress.
-
+    This work is currently under progress.
 :::
-
 
 This page presents the preliminary analysis done on the dataset. 
 
-Testing that running R works : 
-```{r}
-getwd()
-```
+# Loading the data
 
-First, we want to load the datasets : 
+First, we want to load the different datasets : 
 
 ```{r}
 library(foreign)
 hhm = suppressWarnings(read.spss("data_management/data/raw/wave_1/KEN_2022_K-LSRH_v01_M_SPSS/hhm.sav",
     to.data.frame = TRUE))
-dim(hhm)
 hr = suppressWarnings(read.spss("data_management/data/raw/wave_1/KEN_2022_K-LSRH_v01_M_SPSS/hr.sav",
     to.data.frame = TRUE))
-dim(hr)
 rr = suppressWarnings(read.spss("data_management/data/raw/wave_1/KEN_2022_K-LSRH_v01_M_SPSS/rr.sav",
     to.data.frame = TRUE))
-dim(rr)
-
 wer = suppressWarnings(read.spss("data_management/data/raw/wave_1/KEN_2022_K-LSRH_v01_M_SPSS/wer.sav",
     to.data.frame = TRUE))
+dim(rr)
+dim(hr)
+dim(hhm)
 dim(wer)
 ```
 
@@ -50,11 +43,72 @@ dim(wer)
 
 Which seems to confirm the good loading of the data. 
 
-# Descriptive statistics. 
+# Age distribution
 
-Doing some descriptive statistics, we have : 
+If we interest ourselves in the first data file ``hhm`` wih information at the individual level of all surveyed household members, we can obtain the disribution of individuals across age. 
+
+First, if we want the total distribution of individuals across age :
 
 ```{r}
-
+maincol = "cyan3"
+table(hhm$a4a_ageyrs)
+plot(hhm$a4a_ageyrs,
+    xlab = "Age", ylab = "Count",
+    main = "Total distribution across age", 
+    col = maincol)
 ```
 
+If we want to plot genders separately. For males, we can do : 
+
+```{r}
+hhm_male = hhm[hhm$a4a_gender == "Male",]
+plot(hhm_male$a4a_ageyrs,
+    xlab = "Age", ylab = "Count",
+    main = "Disribution of Males across age.",
+    col = maincol)
+```
+
+For females, we have : 
+
+```{r}
+hhm_female = hhm[hhm$a4a_gender == "Female",]
+plot(hhm_male$a4a_ageyrs,
+    xlab = "Age", ylab = "Count",
+    main = "Disribution of Females across age.",
+    col = maincol)
+```
+
+Plotted together, we have : 
+
+```{r}
+library(ggplot2)
+ggplot(hhm, aes(x = a4a_ageyrs, fill = a4a_gender)) +
+                geom_bar(position = "dodge") +
+                theme_minimal() +
+                xlab("Age") +
+                ylab("Count") +
+                scale_fill_discrete(name = "Gender") +
+                ggtitle("Age Distribution of Females and Males")
+```
+
+Or alternatively : 
+
+```{r}
+ggplot(hhm, aes(x = a4a_ageyrs, fill = a4a_gender)) + 
+            stat_count() +
+            theme_minimal() +
+            xlab("Age") +
+            ylab("Count") +
+            scale_fill_discrete(name = "Gender") +
+            ggtitle("Age Distribution by Gender")
+```
+
+# To come 
+
+The further analysis is still planned : 
+
+- Distribution of individuals in function of their nationality
+- Distribution of individuals in function of their migration status
+
+We are interested in the gap of consumption between Refugees and Resident.
+We are therefore going to include other consumption variables in he following analysis.
