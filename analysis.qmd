@@ -1,5 +1,5 @@
 ---
-title: "Descriptive Satisics"
+title: "Descriptive Statisics"
 ---
 
 ::: {.callout-warning}
@@ -111,4 +111,4 @@ The further analysis is still planned :
 - Distribution of individuals in function of their migration status
 
 We are interested in the gap of consumption between Refugees and Resident.
-We are therefore going to include other consumption variables in he following analysis.
+We are therefore going to include other consumption variables in the following analysis.
