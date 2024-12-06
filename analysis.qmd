@@ -103,12 +103,66 @@ ggplot(hhm, aes(x = a4a_ageyrs, fill = a4a_gender)) +
             ggtitle("Age Distribution by Gender")
 ```
 
+# Nationality Distribution 
+
+There are 12 different nationalities identified among the surveyed individuals. Represented with bars, we get : 
+
+```{r}
+plot(hhm$a4a_nationality,
+    xlab = "Nationality", ylab = "Count",
+    main = "Nationality",
+    col = maincol)
+```
+
+In a pie chart, we have : 
+
+```{r}
+library(plotly)
+plot_ly(data = hhm,
+    labels = levels(hhm$a4a_nationality), 
+    values = table(hhm$a4a_nationality),
+    type = 'pie')
+```
+
+# Migration status distribution
+
+There are 8 possible values for migration status in the survey : 
+
+```{r}
+levels(hhm$a4a_migration)
+```
+
+However, it seems that three of them have 0 individuals registered : 
+
+```{r}
+table(hhm$a4a_migration)
+```
+
+Representing with bars, we get : 
+
+```{r}
+# Making the name shorter so that it is included in the plot :
+levels(hhm$a4a_migration)[7] = "Asyleum seeker"
+plot(hhm$a4a_migration,
+    xlab = "Migration status", ylab = "Count",
+    main = "Migration status",
+    col = maincol)
+```
+
+With a pie chart, we have : 
+
+```{r}
+plot_ly(data = hhm,
+    labels = levels(hhm$a4a_migration), 
+    values = table(hhm$a4a_migration),
+    type = 'pie')
+```
+
 # To come 
 
 The further analysis is still planned : 
 
-- Distribution of individuals in function of their nationality
-- Distribution of individuals in function of their migration status
+- Joint distribution of the mentioned variables.
 
 We are interested in the gap of consumption between Refugees and Resident.
 We are therefore going to include other consumption variables in the following analysis.

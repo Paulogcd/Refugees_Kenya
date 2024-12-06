@@ -4,6 +4,7 @@ rm(list = ls())
 
 library(foreign)
 library(ggplot2)
+library(plotly) # Useful for pie charts
 
 # First, be sure to have your working directory in the root of the repository ("Refugees_Kenya/").
 
@@ -124,14 +125,52 @@ library(ggplot2)
 
     }
     
-    table(rhhm$a4a_migration)
+    # Distribution with respect to their migration status :
+    {
+        table(rhhm$a4a_migration)
+        levels(rhhm$a4a_migration)
+        
+        # The seventh level : 
+        # "Asyleum seeker (does not yet hold refugee status)"
+        # is too long to be displayed in the plot. 
+        # I therefore shorten it.
+        l = levels(rhhm$a4a_migration)
+        levels(rhhm$a4a_migration)[7] = "Asyleum seeker"
 
-    table(rhhm$a4a_gender, rhhm$a4a_ageyrs)
-    plot(rhhm$a4a_ageyrs, rhhm$a4a_gender)
+        plot(rhhm$a4a_migration,
+            xlab = "Migration status", ylab = "Count",
+            main = "Migration status",
+            col = maincol)
+        dev.print(png, 'figures/migration_status_hist.png', width = 1200, height = 800)
 
-    # Number of households :
-    n_hh = length(unique(hhm$hhid)) # 9304
-    n_hh
+        plot_ly(data = rhhm,
+            labels = levels(rhhm$a4a_migration), 
+            values = table(rhhm$a4a_migration),
+            type = 'pie')
+        # plotly objects are difficult to save as static images.
+    }
+
+    # Distribution with respect to their nationality :
+    {
+        length(unique(rhhm$a4a_nationality))
+        table(rhhm$a4a_nationality)
+        plot(rhhm$a4a_nationality,
+            xlab = "Nationality", ylab = "Count",
+            main = "Nationality",
+            col = maincol)
+        dev.print(png, 'figures/nationality_hist.png', width = 1200, height = 800)
+
+        # pie chart :
+        plot_ly(data = rhhm,
+            labels = levels(rhhm$a4a_nationality), 
+            values = table(rhhm$a4a_nationality),
+            type = 'pie')
+    }
+
+    # Next : joint distribution
+    {
+        ###
+    }
 
 }
 
