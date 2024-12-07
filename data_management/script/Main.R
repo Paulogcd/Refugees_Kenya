@@ -3,6 +3,7 @@
 rm(list = ls())
 
 library(foreign)
+library(knitr)
 library(ggplot2)
 library(plotly) # Useful for pie charts
 
@@ -169,15 +170,22 @@ library(plotly) # Useful for pie charts
 
     # Next : joint distribution
     {
-        ###
+        t = table(rhhm$a4a_gender, rhhm$a4a_nationality, rhhm$a4a_migration)
+        print(t)
+        kable(t)
     }
+    # More descriptive statistics about population ?
 
 }
 
-# Overview of hr :
-{
-    dim(hr) # 9304   955
+# What about the determinants of consumption ? 
 
-    # Number of individuals ?
+# When looking for "consumption", some variables exist about 
+# consumption restriction strategies, following natural disasters. 
 
-}
+# It appears that "income" does not appear directly, but rather
+# different type of wealth, such has owning pets, having access to phone, etc. 
+
+# What strategy to adopt ? 
+
+
