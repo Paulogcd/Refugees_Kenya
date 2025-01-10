@@ -58,6 +58,9 @@ plot(hhm$a4a_ageyrs,
     col = maincol)
 ```
 
+Note that the last plotted value of the `hhm$a4a_ageyrs` variable is the `NA` value.
+This behavior is reproduced in all following plots of this variable.
+
 If we want to plot genders separately. For males, we can do : 
 
 ```{r}
@@ -88,7 +91,9 @@ ggplot(hhm, aes(x = a4a_ageyrs, fill = a4a_gender)) +
                 xlab("Age") +
                 ylab("Count") +
                 scale_fill_discrete(name = "Gender") +
-                ggtitle("Age Distribution of Females and Males")
+                ggtitle("Age Distribution of Females and Males") + 
+                scale_x_discrete(breaks = seq(min(as.numeric(hhm$a4a_ageyrs), na.rm = TRUE),
+                    max(as.numeric(hhm$a4a_ageyrs), na.rm = TRUE), by = 5))
 ```
 
 Or alternatively : 
@@ -100,7 +105,9 @@ ggplot(hhm, aes(x = a4a_ageyrs, fill = a4a_gender)) +
             xlab("Age") +
             ylab("Count") +
             scale_fill_discrete(name = "Gender") +
-            ggtitle("Age Distribution by Gender")
+            ggtitle("Age Distribution by Gender") + 
+            scale_x_discrete(breaks = seq(min(as.numeric(hhm$a4a_ageyrs), na.rm = TRUE),
+                max(as.numeric(hhm$a4a_ageyrs), na.rm = TRUE), by = 5))
 ```
 
 # Nationality Distribution 
