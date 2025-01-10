@@ -189,3 +189,14 @@ library(plotly) # Useful for pie charts
 # What strategy to adopt ? 
 
 
+# numeric_ages = as.numeric(hhm$a4a_ageyrs)
+# 
+# ggplot(hhm, aes(x = a4a_ageyrs, fill = a4a_gender)) +
+#                 geom_bar(position = "dodge") +
+#                 theme_minimal() +
+#                 xlab("Age") +
+#                 ylab("Count") +
+#                 scale_fill_discrete(name = "Gender") +
+#                 ggtitle("Age Distribution of Females and Males") +
+#                 scale_x_discrete(breaks = seq(min(numeric_ages, na.rm = TRUE), max(numeric_ages, na.rm = TRUE), by = 5))
+
